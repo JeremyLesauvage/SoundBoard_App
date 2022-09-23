@@ -1,0 +1,64 @@
+h1 {
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(to left top, rgb(40, 90, 255), rgb(6, 247, 247));
+  background-attachment: fixed;
+}
+
+
+.container {
+  border: 1px solid #333;
+
+  /*all the container can't be selected*/
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/*Stop Button*/
+#btn000{
+  background-color: rgb(209, 26, 102);
+}
+#btn000:active{
+  background-color: rgb(151, 33, 82);
+}
+
+/*Select Directory*/
+.selectDir{
+  margin: 35px;
+  display: flex;
+  justify-content:left
+}
+
+/*other buttons*/
+.btn {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  margin: 5px;
+  background-color: rgb(201, 214, 14);
+  border-radius: 25px;
+}
+.btn:active {
+  background-color: rgb(54, 214, 14);
+}
+
+/*sound controller icon*/
+.sound-controller{
+  display: flex;
+ justify-content:center ;
+ 
+}
+
+/*sound controller volume bar*/
+.volume{
+  display: flex;
+  justify-content:center ;
+  margin-left: -100px;
+  margin-bottom: 20px;
+}
+

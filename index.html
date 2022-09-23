@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.2.0-dist/css/bootstrap.grid.css"/>
+    <script src="bootstrap-5.2.0-dist/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+    <title>bouton pouet pouet</title>
+</head>
+
+<body>
+<h1>Des boutons qui font plein de bruit</h1>
+<div class="container" id="container">
+
+    <!--Sound controller Icon-->
+    <div class="sound-controller">
+        <svg>
+            <g fill="none" stroke="rgb(0, 117, 255)" stroke-width="2">
+                <path d="M50,50 L50,100 L80,100 L100,120 L110,120 L110,30 L100,30 L80,50 47,50" stroke-width="6"></path>
+                <path d="M120,30 A120,100 0 0,1 120,120" class="sound1" id="soudWave1" stroke-width="2"></path>
+                <path d="M130,20 A120,100 0 0,1 130,130" class="sound2" id="soudWave2" stroke-width="3"></path>
+                <path d="M140,10 A120,100 0 0,1 140,140" class="sound3" id="soudWave3" stroke-width="4"></path>
+                <line x1="40" y1="120" x2="130" y2="10" stroke="rgb(209, 26, 102)" stroke-width="0" id="mute"></line>
+            </g>
+        </svg>
+    </div>
+
+    <!--Sound controller Volume Bar-->
+    <div class="volume">
+        <input type="range" class="range" value="100" min="0" max="100">
+        <span id="barValue">100%</span>
+    </div>
+
+    <!--Directory selection-->
+    <div class="selectDir">
+        <input id="selectDir" type="file" webkitdirectory directory multiple>
+    </div>
+
+    <!--Stop Audio Buttons-->
+    <button class="btn" id="btn000">STOP</button>
+</div>
+</body>
+
+</html>
