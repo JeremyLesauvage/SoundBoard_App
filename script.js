@@ -1,5 +1,7 @@
 const audio = new Audio();
 const lengthSoundFolder = 79; //TODO count the number of file in the selected directory
+const soundControllerLowerLimit = 40;
+const soundControllerUpperLimit = 70;
 
 //TEST
 const dirSelector = document.getElementById("selectDir").files;
@@ -23,41 +25,39 @@ function playAudio(audio, btnId, sourceAudio) {
 }
 
 /*function to set display elements status for the audio controller icon*/
-function displayElemntAudioControllerIcon(mute, soudWave1,soudWave2,soudWave3){
+function displayElementAudioControllerIcon(mute, soundWave1, soundWave2, soundWave3){
   document.getElementById("mute").style.display = mute;
-  document.getElementById("soudWave1").style.display = soudWave1;
-  document.getElementById("soudWave2").style.display = soudWave2;
-  document.getElementById("soudWave3").style.display = soudWave3;
+  document.getElementById("soundWave1").style.display = soundWave1;
+  document.getElementById("soundWave2").style.display = soundWave2;
+  document.getElementById("soundWave3").style.display = soundWave3;
 }
 
 /*sound controller */
 const line = document.getElementsByTagName("input")[0];
 line.addEventListener("mousemove", function () {
   const barValue = document.getElementById("barValue");
-  const valueLimit1 = 40;
-  const valueLimit2 = 70;
   if (line.value == 0) {
     barValue.innerHTML = "Mute";
-    displayElemntAudioControllerIcon("block","none","none","none");
+    displayElementAudioControllerIcon("block","none","none","none");
     document.querySelector("line").setAttribute("stroke-width", "4");
   }
-  else if (1 < line.value && line.value < valueLimit1) {
-    barValue.innerHTML = line.value + "%";  
-    displayElemntAudioControllerIcon("none","block","none","none");
+  else if (1 < line.value && line.value < soundControllerLowerLimit) {
+    barValue.innerHTML = line.value + "%";
+    displayElementAudioControllerIcon("none","block","none","none");
   }
-  else if (valueLimit1 < line.value && line.value < valueLimit2) {
-    barValue.innerHTML = line.value + "%";    
-    displayElemntAudioControllerIcon("none","block","block","none");
+  else if (soundControllerLowerLimit < line.value && line.value < soundControllerUpperLimit) {
+    barValue.innerHTML = line.value + "%";
+    displayElementAudioControllerIcon("none","block","block","none");
   }
-  else if (line.value > valueLimit2) {
-    barValue.innerHTML = line.value + "%";    
-    displayElemntAudioControllerIcon("none","block","block","block");
+  else if (line.value > soundControllerUpperLimit) {
+    barValue.innerHTML = line.value + "%";
+    displayElementAudioControllerIcon("none","block","block","block");
   }
   audio.volume = (line.value / 100).toFixed(2); //resized value to 0-1 range and select 2 decimal
 });
 
 /**
- * Create an HTML button in javascript 
+ * Create an HTML button in javascript
  * @param {*} btnIdNumber the button id, in the format: 000
  */
 function createButton(btnIdNumber){
